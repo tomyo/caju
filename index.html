@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="es-ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CAJÚ</title>
+    <meta
+      name="Description"
+      content="CAJÚ - A cinematic duo comprising of cinematographer 
+    Camila Hayes and musician Julia Groppo.
+    We provide Content solutions for Hotels & Resorts.
+    "
+    />
+    <style>
+      /* reset */
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        min-height: 100%;
+
+        font-size: 100%;
+      }
+
+      /* Global styles */
+
+      body {
+        --bg-color: #2e3541;
+        --color: #e9deca;
+
+        background-color: var(--bg-color);
+        color: var(--color);
+        font-family: Candara, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+
+      @font-face {
+        font-family: "Candara";
+        src: url("/assets/fonts/Candara_Light.woff2") format("woff2"),
+          url("/assets/fonts/Candara_Light.ttf") format("truetype");
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div>
+          <picture>
+            <source srcset="/assets/images/title-small.avif" type="image/avif" />
+            <source srcset="/assets/images/title-small.png" type="image/png" />
+            <img class="title" src="/assets/images/title-small.png" width="133px" />
+          </picture>
+          <h4>
+            We are cinematic duo comprising of cinematographer<br />
+            Camila Hayes and musician Julia Groppo<br />
+            We provide Content solutions for Hotels & Resorts
+          </h4>
+          <button onclick="backgroundVideo.muted = !backgroundVideo.muted">
+            <img srcset="/assets/images/logo.png" width="100px" />
+          </button>
+        </div>
+        <video id="backgroundVideo" autoplay="true" muted playsinline loop>
+          <source src="/assets/videos/background-vertical.mp4" type="video/mp4" />
+        </video>
+      </section>
+
+      <style>
+        section {
+          padding: 8%;
+        }
+
+        section:first-child {
+          position: absolute;
+          height: 100vh;
+          height: 100lvh;
+          width: 100vw;
+          width: 100lvw;
+          padding-top: 20vh;
+
+          & > div {
+            display: grid;
+            justify-items: center;
+
+            button {
+              background: none;
+              border: none;
+              cursor: pointer;
+
+              animation: music 1.3s alternate 0s infinite;
+            }
+          }
+
+          .title {
+            width: 5rem;
+          }
+
+          h4 {
+            text-align: center;
+          }
+
+          video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+          }
+        }
+        @keyframes music {
+          from {
+            transform: scale(1);
+          }
+          to {
+            transform: scale(1.1);
+          }
+        }
+      </style>
+    </main>
+  </body>
+</html>
