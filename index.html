@@ -91,10 +91,7 @@
           </h4>
           <button onclick="backgroundVideo.muted = !backgroundVideo.muted; this.classList.toggle('animate');">
             <picture>
-              <source
-                srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x"
-                type="image/avif"
-              ></source>
+              <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif" />
               <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" height="100px" />
             </picture>
           </button>
@@ -103,19 +100,8 @@
           <source src="/assets/videos/background-portrait.mp4" type="video/mp4" media="(orientation: portrait)" />
           <source src="/assets/videos/background-landscape.mp4" type="video/mp4" media="(orientation: landscape)" />
         </video>
-      </section>
-
       <style>
-        section {
-          padding: 8%;
-        }
-
         section:first-child {
-          position: absolute;
-          height: 100vh;
-          height: 100lvh;
-          width: 100vw;
-          width: 100lvw;
           padding-top: 20vh;
 
           & > div {
@@ -126,7 +112,7 @@
               background: none;
               border: none;
               cursor: pointer;
-              opacity: .48;
+                opacity: 0.48;
               &.animate {
                 animation: music 1.3s alternate 0s infinite;
                 opacity: 1;
@@ -139,7 +125,6 @@
           }
 
           h4 {
-            text-align: center;
             font-weight: 300;
           }
 
@@ -161,6 +146,8 @@
           }
         }
       </style>
+      </section>
+
     </main>
   </body>
 </html>
