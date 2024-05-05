@@ -100,54 +100,97 @@
           <source src="/assets/videos/background-portrait.mp4" type="video/mp4" media="(orientation: portrait)" />
           <source src="/assets/videos/background-landscape.mp4" type="video/mp4" media="(orientation: landscape)" />
         </video>
-      <style>
-        section:first-child {
-          padding-top: 20vh;
+        <style>
+          section:first-child {
+            padding-top: 20vh;
 
-          & > div {
-            display: grid;
-            justify-items: center;
+            & > div {
+              display: grid;
+              justify-items: center;
 
-            button {
-              background: none;
-              border: none;
-              cursor: pointer;
+              button {
+                background: none;
+                border: none;
+                cursor: pointer;
                 opacity: 0.48;
-              &.animate {
-                animation: music 1.3s alternate 0s infinite;
-                opacity: 1;
+                &.animate {
+                  animation: music 1.3s alternate 0s infinite;
+                  opacity: 1;
+                }
               }
             }
-          }
 
-          .title {
-            height: 4rem;
-          }
+            .title {
+              height: 4rem;
+            }
 
-          h4 {
-            font-weight: 300;
-          }
+            h4 {
+              font-weight: 300;
+            }
 
-          video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            object-fit: cover;
+            video {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+              object-fit: cover;
+            }
           }
-        }
-        @keyframes music {
-          from {
-            transform: scale(1);
+          @keyframes music {
+            from {
+              transform: scale(1);
+            }
+            to {
+              transform: scale(1.1);
+            }
           }
-          to {
-            transform: scale(1.1);
-          }
-        }
-      </style>
+        </style>
       </section>
 
+      <section id="services">
+        <picture>
+          <source srcset="/assets/images/background-cajus-portrait.avif" type="image/avif" />
+          <img srcset="/assets/images/background-cajus-portrait.jpg" />
+        </picture>
+        <h2>Services</h2>
+        <p>
+          We offer a comprehensive and integrated solution of audiovisual material for media and social networks. We
+          have the resources, skills, and industry-specific experience to develop creative projects that are functional
+          for the client.
+        </p>
+        <p>
+          Whether for the web or advertising campaigns, we create audiovisual pieces and photographs that boost their
+          online presence and attract new consumers.
+        </p>
+        <p>
+          Furthermore, we specialize in creating content optimized for social media. From short videos in vertical
+          format for stories, reels, and TikTok, to photos and videos in horizontal format for Instagram feed posts, we
+          ensure that your content adapts perfectly to each platform, highlighting the uniqueness of each place and
+          engaging with current trends.
+        </p>
+
+        <style>
+          #services {
+            display: grid;
+            place-content: center;
+
+            img {
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: top;
+              opacity: 18%;
+            }
+
+            h2 {
+              font-weight: normal;
+            }
+          }
+        </style>
+      </section>
     </main>
   </body>
 </html>
