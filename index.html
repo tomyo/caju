@@ -53,9 +53,8 @@
       <section>
         <div>
           <picture>
-            <source srcset="/assets/images/title-small.avif" type="image/avif" />
-            <source srcset="/assets/images/title-small.png" type="image/png" />
-            <img class="title" src="/assets/images/title-small.png" width="133px" />
+            <source srcset="/assets/images/title-xs.avif 1x" type="image/avif" />
+            <img class="title" src="/assets/images/title-xs.png" height="100px" />
           </picture>
           <h4>
             We are cinematic duo comprising of cinematographer<br />
@@ -63,7 +62,13 @@
             We provide Content solutions for Hotels & Resorts
           </h4>
           <button onclick="backgroundVideo.muted = !backgroundVideo.muted">
-            <img srcset="/assets/images/logo.png" width="100px" />
+            <picture>
+              <source
+                srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x"
+                type="image/avif"
+              ></source>
+              <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" height="100px" />
+            </picture>
           </button>
         </div>
         <video id="backgroundVideo" autoplay="true" muted playsinline loop>
@@ -99,7 +104,7 @@
           }
 
           .title {
-            width: 5rem;
+            height: 4rem;
           }
 
           h4 {
