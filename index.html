@@ -61,7 +61,7 @@
             Camila Hayes and musician Julia Groppo<br />
             We provide Content solutions for Hotels & Resorts
           </h4>
-          <button onclick="backgroundVideo.muted = !backgroundVideo.muted">
+          <button onclick="backgroundVideo.muted = !backgroundVideo.muted; this.classList.toggle('animate');">
             <picture>
               <source
                 srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x"
@@ -98,8 +98,9 @@
               background: none;
               border: none;
               cursor: pointer;
-
-              animation: music 1.3s alternate 0s infinite;
+              &.animate {
+                animation: music 1.3s alternate 0s infinite;
+              }
             }
           }
 
