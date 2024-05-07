@@ -191,24 +191,46 @@
           engaging with current trends.
         </p>
 
+        <picture>
+          <source
+            srcset="/assets/images/background-cajus-landscape.avif"
+            type="image/avif"
+            media="(orientation: landscape)"
+            width="1920px"
+            heigth="1357px"
+          />
+          <source
+            srcset="/assets/images/background-cajus-landscape.png"
+            type="image/png"
+            media="(orientation: landscape)"
+            width="1920px"
+            heigth="1357px"
+          />
+          <source
+            srcset="/assets/images/background-cajus-portrait.avif"
+            type="image/avif"
+            media="(orientation: portrait)"
+            width="1357px"
+            heigth="1920px"
+          />
+          <img
+            class="background-full"
+            src="/assets/images/background-cajus-portrait.png"
+            type="image/png"
+            width="1357px"
+            heigth="1920px"
+            media="(orientation: portrait)"
+          />
+        </picture>
+
         <style>
           #services {
             display: grid;
             place-content: center;
 
-            &::after {
-              content: "";
-              position: absolute;
-              inset: 0;
-              background-image: image-set(
-                url("/assets/images/background-cajus-landscape.avif") type("image/avif"),
-                url("/assets/images/background-cajus-landscape.png") type("image/png")
-              );
-              background-position: top;
-            }
-
-            > * {
-              z-index: 1; /* Force content above bg image */
+            .background-full {
+              object-position: top;
+              opacity: 0.18;
             }
 
             h3 {
@@ -288,6 +310,7 @@
             }
 
             > picture:first-of-type {
+              /* Image at center of section */
               display: contents;
 
               img {
@@ -302,7 +325,7 @@
               img {
                 position: absolute;
                 width: 50vw;
-                opacity: 0.48;
+                opacity: 0.4;
                 pointer-events: none;
 
                 &.one {
