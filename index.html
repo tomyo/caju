@@ -193,18 +193,24 @@
           engaging with current trends.
         </p>
 
-        <picture>
-          <source srcset="/assets/images/background-cajus-landscape.avif" type="image/avif" />
-          <img class="background-full" srcset="/assets/images/background-cajus-landscape.png" alt="background image" />
-        </picture>
-
         <style>
           #services {
             display: grid;
             place-content: center;
 
-            img {
-              z-index: initial;
+            &::before {
+              content: "";
+              position: absolute;
+              inset: 0;
+              background-image: image-set(
+                url("/assets/images/background-cajus-landscape.avif") type("image/avif"),
+                url("/assets/images/background-cajus-landscape.png") type("image/png")
+              );
+              background-position: center;
+            }
+
+            > * {
+              z-index: 1; /* Force content above bg image */
             }
 
             h3 {
@@ -322,6 +328,10 @@
                   transform: rotate(21deg);
                 }
               }
+            }
+
+            & > *:not(.background-images) {
+              z-index: 1;
             }
           }
         </style>
