@@ -256,12 +256,20 @@
 
         <div class="background-images">
           <picture>
-            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-xs.avif 2x" type="image/avif" />
-            <img src="/assets/images/caju-xs.png" class="left" />
+            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-lg.avif 2x" type="image/avif" />
+            <img src="/assets/images/caju-xs.png" class="one" />
           </picture>
           <picture>
-            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-xs.avif 2x" type="image/avif" />
-            <img src="/assets/images/caju-xs.png" class="right" />
+            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-lg.avif 2x" type="image/avif" />
+            <img src="/assets/images/caju-xs.png" class="two" />
+          </picture>
+          <picture>
+            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-lg.avif 2x" type="image/avif" />
+            <img src="/assets/images/caju-xs.png" class="three" />
+          </picture>
+          <picture>
+            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-lg.avif 2x" type="image/avif" />
+            <img src="/assets/images/caju-xs.png" class="four" />
           </picture>
         </div>
 
@@ -289,19 +297,29 @@
             .background-images {
               img {
                 position: absolute;
-                width: 46vw;
+                width: 50vw;
                 opacity: 0.48;
                 pointer-events: none;
 
-                &.left {
-                  top: -8vw;
-                  left: -11vw;
+                &.one {
+                  top: 0;
+                  left: -26vw;
                   transform: rotate(28deg);
                 }
-                &.right {
-                  right: -11vw;
-                  bottom: -13vw;
+                &.two {
+                  right: -23%;
+                  top: 8%;
                   transform: rotate(210deg);
+                }
+                &.three {
+                  right: -12%;
+                  top: max(45%, 123vw);
+                  transform: rotate(23deg);
+                }
+                &.four {
+                  left: -33%;
+                  top: max(79%, 170vh);
+                  transform: rotate(21deg);
                 }
               }
             }
