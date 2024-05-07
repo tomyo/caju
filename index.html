@@ -94,6 +94,14 @@
         object-fit: cover;
         pointer-events: none;
       }
+
+      .bg-texture {
+        background-image: image-set(
+          url("/assets/images/bg-texture.png") type("image/png"),
+          url("/assets/images/bg-texture.avif") type("image/avif")
+        );
+        background-repeat: repeat;
+      }
     </style>
   </head>
   <body>
@@ -167,7 +175,7 @@
         </style>
       </section>
 
-      <section id="services">
+      <section id="services" class="bg-texture">
         <h2>SERVICES</h2>
         <p>
           We offer a comprehensive and integrated solution of audiovisual material for media and social networks. We
@@ -196,7 +204,7 @@
             place-content: center;
 
             img {
-              opacity: 18%;
+              z-index: initial;
             }
 
             h2 {
@@ -206,7 +214,7 @@
         </style>
       </section>
 
-      <section id="about">
+      <section id="about" class="bg-texture">
         <h2>ABOUT</h2>
         <p>
           In Cajú, two best friends, one filmmaker and the other musician, come together to reveal the essence of each
@@ -262,9 +270,6 @@
             display: grid;
             place-content: center;
             overflow: hidden;
-
-            background-image: url("/assets/images/bg-texture.png");
-            background-repeat: repeat;
 
             > picture:first-of-type {
               display: contents;
