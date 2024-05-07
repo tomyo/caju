@@ -32,8 +32,14 @@
         --bg-color: #2e3541;
         --color: #e9deca;
 
-        background-color: var(--bg-color);
         color: var(--color);
+        background-color: var(--bg-color);
+
+        background-image: image-set(
+          url("/assets/images/bg-texture.avif") type("image/avif"),
+          url("/assets/images/bg-texture.png") type("image/png")
+        );
+        background-repeat: repeat;
         font-family: Candara, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
           Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       }
@@ -94,23 +100,11 @@
         object-fit: cover;
         pointer-events: none;
       }
-
-      .bg-texture::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        background-image: image-set(
-          url("/assets/images/bg-texture.avif") type("image/avif"),
-          url("/assets/images/bg-texture.png") type("image/png")
-        );
-        background-repeat: repeat;
-      }
     </style>
   </head>
   <body>
     <main>
-      <section id="hero" class="bg-texture">
+      <section>
         <div>
           <picture>
             <source srcset="/assets/images/title-xs.avif 1x" type="image/avif" />
@@ -179,7 +173,7 @@
         </style>
       </section>
 
-      <section id="services" class="bg-texture">
+      <section id="services">
         <h3>SERVICES</h3>
         <p>
           We offer a comprehensive and integrated solution of audiovisual material for media and social networks. We
@@ -224,7 +218,7 @@
         </style>
       </section>
 
-      <section id="about" class="bg-texture">
+      <section id="about">
         <h3>ABOUT</h3>
         <p>
           In Cajú, two best friends, one filmmaker and the other musician, come together to reveal the essence of each
