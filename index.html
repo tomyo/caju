@@ -378,10 +378,12 @@
 
         <div>
           <p class="inspiration">From the essence the idea germinates, <br />from the idea the story flourishes.</p>
-          <picture>
-            <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif" />
-            <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" height="50px" />
-          </picture>
+          <button onclick='window.scrollTo({top: 0, behavior: "smooth"})'>
+            <picture>
+              <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif" />
+              <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" height="50px" />
+            </picture>
+          </button>
         </div>
 
         <style>
@@ -411,6 +413,12 @@
             .inspiration {
               font-weight: 300;
               font-size: 0.8em;
+            }
+
+            button {
+              background: none;
+              border: none;
+              animation: music 1.3s alternate 0s infinite;
             }
 
             .caju-bg {
