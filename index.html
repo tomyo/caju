@@ -359,6 +359,73 @@
           }
         </style>
       </section>
+      <section id="contact">
+        <h3>CONTACT</h3>
+        <div class="contact-info">
+          <a href="mailto:caju.creatives@gmail.com">caju.creatives@gmail.com </a>
+          <a href="tel:+34687017471">+34687017471</a>
+          <a href="tel:+34657759110">+34657759110</a>
+          <div class="location">
+            <img src="/assets/images/pin.png" height="35px" />
+
+            <p>From Argentina <br />Based in <strong>Barcelona</strong></p>
+          </div>
+          <picture>
+            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-lg.avif 2x" type="image/avif" />
+            <img src="/assets/images/caju-xs.png" class="caju-bg" loading="lazy" />
+          </picture>
+        </div>
+
+        <div>
+          <p class="inspiration">From the essence the idea germinates, <br />from the idea the story flourishes.</p>
+          <picture>
+            <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif" />
+            <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" height="50px" />
+          </picture>
+        </div>
+
+        <style>
+          #contact {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: end;
+            gap: 3rem;
+            margin-top: 4rem;
+
+            text-align: center;
+
+            .contact-info {
+              display: grid;
+              justify-items: center;
+              gap: 1rem;
+              position: relative;
+            }
+
+            .location {
+              margin-top: 2rem;
+              p {
+                margin: 0;
+              }
+            }
+
+            .inspiration {
+              font-weight: 300;
+              font-size: 0.8em;
+            }
+
+            .caju-bg {
+              position: absolute;
+              inset: -14rem 0;
+              opacity: 0.4;
+              object-fit: contain;
+              margin-inline: auto;
+              height: 200%;
+              max-width: 80%;
+              z-index: -1;
+            }
+          }
+        </style>
+      </section>
     </main>
   </body>
 </html>
