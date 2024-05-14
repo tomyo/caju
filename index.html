@@ -382,8 +382,11 @@
             <p>From Argentina <br />Based in <strong>Barcelona</strong></p>
           </div>
           <picture>
-            <source srcset="/assets/images/caju-xs.avif 1x, /assets/images/caju-lg.avif 2x" type="image/avif" />
-            <img src="/assets/images/caju-xs.png" class="caju-bg" loading="lazy" />
+            <source
+              srcset="/assets/images/caju-contact-600w.avif 1x, /assets/images/caju-contact-1000w.avif 2x"
+              type="image/avif"
+            />
+            <img src="/assets/images/caju-contact-600w.png" class="caju-bg" loading="lazy" />
           </picture>
         </div>
 
@@ -410,8 +413,20 @@
             .contact-info {
               display: grid;
               justify-items: center;
+              align-items: center;
               gap: 1rem;
               position: relative;
+
+              .caju-bg {
+                position: absolute;
+                inset: -12rem 0;
+                opacity: 0.4;
+                object-fit: contain;
+                margin-inline: auto;
+                height: 190%;
+                max-width: 100%;
+                z-index: -1;
+              }
             }
 
             .location {
@@ -431,17 +446,7 @@
               background: none;
               border: none;
               animation: music 1.3s alternate 0s infinite;
-            }
-
-            .caju-bg {
-              position: absolute;
-              inset: -14rem 0;
-              opacity: 0.4;
-              object-fit: contain;
-              margin-inline: auto;
-              height: 200%;
-              max-width: 80%;
-              z-index: -1;
+              margin-top: 1em;
             }
           }
         </style>
