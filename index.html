@@ -119,8 +119,15 @@
       <section>
         <div>
           <picture>
-            <source srcset="/assets/images/title-xs.avif 1x" type="image/avif" />
-            <img class="title" src="/assets/images/title-xs.png" height="100px" />
+            <source
+              srcset="/assets/images/caju-title-xs.avif 1x, /assets/images/caju-title.avif 2x"
+              type="image/avif"
+            />
+            <img
+              class="title"
+              srcset="/assets/images/caju-title-xs.png 1x, /assets/images/caju-title.png 2x"
+              height="50px"
+            />
           </picture>
           <h4>
             We are cinematic duo comprising of cinematographer Camila Hayes and musician Julia Groppo<br />
@@ -142,6 +149,15 @@
             height: 100svh;
             padding-top: 20vh;
 
+            .title {
+              height: 2.5rem;
+            }
+
+            h4 {
+              font-weight: 300;
+              max-width: 42ch;
+            }
+
             & > div {
               display: grid;
               justify-items: center;
@@ -162,15 +178,6 @@
                   opacity: 0.6;
                 }
               }
-            }
-
-            .title {
-              height: 4rem;
-            }
-
-            h4 {
-              font-weight: 300;
-              max-width: 42ch;
             }
           }
 
