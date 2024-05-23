@@ -38,27 +38,35 @@ customElements.define(
         </main>
 
         <style>
+          body:has(aside-menu[data-state="expanded"]) {
+            overflow: hidden;  /* Avoid scrolling page when menu is open */
+          }
 
-          aside-menu[data-state="expanded"] main{
-            --display: grid;
-            z-index: 2;
+          aside-menu[data-state="expanded"] main {
+            visibility: visible;
+            opacity: 1;
           }
 
           aside-menu {
             --button-size: 40px;
             --button-right: 3rem;
 
-            
             main {
-              display: var(--display, none);
+              display: grid;
               place-content: center;
               position: fixed;
               inset: 0;
               height: 100%;
               width: 100%;
+              z-index: 2;
 
               background-color: var(--bg-color);
               background-image: image-set( url("/assets/images/bg-texture.avif") type("image/avif"), url("/assets/images/bg-texture.png") type("image/png") );
+
+              /* hidden default state */
+              visibility: hidden;
+              opacity: 0;
+              transition: opacity .25s ease-in-out, visibility .25s ease-out;
 
               nav {
                 --gap: 4rem;
@@ -69,7 +77,7 @@ customElements.define(
                 margin-top: calc(var(--gap) * 2);
                 text-align: center;
                 color: inherit;
-                
+
                 a {
                   font-weight: 600;
                   text-decoration: none;
