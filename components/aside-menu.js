@@ -31,7 +31,7 @@ customElements.define(
             <picture>
               <!-- bg image -->
               <source srcset="/assets/images/caju-menu-600w.avif" type="image/avif"/>
-              <img srcset="/assets/images/caju-menu-600w.png" height="700px"/>
+              <img srcset="/assets/images/caju-menu-600w.png" height="700"/>
             </picture>
           </nav>
         
