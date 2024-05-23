@@ -129,16 +129,25 @@
               class="title"
               srcset="/assets/images/caju-title-xs.png 1x, /assets/images/caju-title.png 2x"
               height="50"
+              alt="CAJU title"
             />
           </picture>
           <h4>
             We are cinematic duo comprising of cinematographer Camila Hayes and musician Julia Groppo<br />
             We provide Content solutions for Hotels & Resorts
           </h4>
-          <button autofocus onclick="bgVideo.muted = !bgVideo.muted; this.classList.toggle('music-on');">
+          <button
+            autofocus
+            onclick="bgVideo.muted = !bgVideo.muted; this.classList.toggle('music-on');"
+            aria-label="Play or pause background music"
+          >
             <picture>
               <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif" />
-              <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" height="100" />
+              <img
+                srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x"
+                height="100"
+                alt="logo as button"
+              />
             </picture>
           </button>
         </div>
@@ -394,7 +403,7 @@
 
         <div>
           <p class="inspiration">From the essence the idea germinates, <br />from the idea the story flourishes.</p>
-          <button onclick='window.scrollTo({top: 0, behavior: "smooth"})'>
+          <button onclick='window.scrollTo({top: 0, behavior: "smooth"})' aria-label="Go back to top">
             <picture>
               <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif" />
               <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" height="50" />
