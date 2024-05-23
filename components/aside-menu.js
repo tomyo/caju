@@ -23,7 +23,7 @@ customElements.define(
         
         <main>
           <nav>
-            <a href="/commissioned" style="color: #50ab95">COMMISSIONED</a>
+            <a href="/comissioned/" style="color: #50ab95">COMISSIONED</a>
             <a href="/#services">SERVICES</a>
             <a href="/#about">ABOUT</a>
             <a href="/#contact">CONTACT</a>
