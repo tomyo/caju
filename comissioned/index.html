@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html lang="es-ar">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CAJÚ</title>
-    <meta name="Description" content="CAJÚ - Commisioned content." />
+    <meta name="Description" content="CAJÚ - Comissioned content." />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png" />
     <script src="/components/aside-menu.js" type="module"></script>
@@ -114,7 +114,7 @@
     <aside-menu> </aside-menu>
     <main>
       <section>
-        <h1>COMISSIONED</h1>
+        <h1 data-l10n-key="comissioned">COMISSIONED</h1>
 
         <div class="videos">
           <button data-video-id="3wNDdOhAHrM">
@@ -260,7 +260,7 @@
     function onYouTubeIframeAPIReady() {
       player = new YT.Player("player", {
         width: "1920",
-        videoId: "3wNDdOhAHrM",
+        videoId: "",
         playerVars: {
           playsinline: 1,
         },
@@ -298,5 +298,23 @@
       videoDialog.showModal();
       playVideo(event.currentTarget.dataset.videoId);
     }
+  </script>
+
+  <!-- L10N -->
+  <script type="module">
+    import { useL10n } from "/lib/i18n/use-l10n.js";
+    const [getUILanguage, getPreferredLanguage, setLanguage] = useL10n({
+      filesPath: "/l10n/", // => fetch('./l10n/{language}.json')
+      dataAttrName: "data-l10n-key", // i.e. <p data-l10n-key="...">
+    });
+
+    window.addEventListener("load", () => {
+      for (const button of document.querySelectorAll("[data-l10n-lang]")) {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.l10nLang);
+          button.classList.add("active");
+        });
+      }
+    });
   </script>
 </html>
