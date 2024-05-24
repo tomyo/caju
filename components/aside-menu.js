@@ -8,7 +8,7 @@ customElements.define(
     }
 
     connectedCallback() {
-      this.renderShadow();
+      this.renderContent();
       this.navButton = this.querySelector("nav-button");
 
       this.addEventsListeners();
@@ -17,17 +17,26 @@ customElements.define(
       this.dataset.state = this.dataset.state ?? "collapsed";
     }
 
-    renderShadow() {
+    renderContent() {
       this.innerHTML = /*html*/ `
         <nav-button data-state=${this.dataset.state}></nav-button>
         
         <main>
           <nav>
-            <a href="/comissioned/" style="color: #50ab95">COMISSIONED</a>
-            <a href="/#services">SERVICES</a>
-            <a href="/#about">ABOUT</a>
-            <a href="/#contact">CONTACT</a>
-            <a href="/#">ES EN</a>
+            <a data-l10n-key="comissioned" href="/comissioned/" style="color: #50ab95">COMISSIONED</a>
+            <a data-l10n-key="services" href="/#services">SERVICES</a>
+            <a data-l10n-key="about" href="/#about">ABOUT</a>
+            <a data-l10n-key="contact" href="/#contact">CONTACT</a>
+            <span class="lang-switch">
+              <label>
+              EN
+              <input name="language" data-l10n-lang="en" type="radio" checked>
+              </label>
+              <label>
+                ES
+                <input name="language" data-l10n-lang="es" type="radio" >
+              </label>
+            </span>
             <picture>
               <!-- bg image -->
               <source srcset="/assets/images/caju-menu-600w.avif" type="image/avif"/>
@@ -77,10 +86,33 @@ customElements.define(
                 margin-top: calc(var(--gap) * 2);
                 text-align: center;
                 color: inherit;
+                width: 15ch; /* Avoid background moving on lang-switch, this must be enought to fit longest menu entry */
 
                 a {
                   font-weight: 600;
                   text-decoration: none;
+                  background: none;
+                  border: none;
+                  color: var(--color);
+                }
+
+                .lang-switch {
+                  display: flex;
+                  gap: .5rem;
+                  justify-content: center;
+
+                  label {
+                    cursor: pointer;
+                    font-weight: 300;
+
+                    &:has(input:checked) {
+                      font-weight: 700;
+                    }
+                  }
+
+                  input {
+                    display: none;
+                  }
                 }
 
                 img {
