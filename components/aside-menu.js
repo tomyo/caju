@@ -71,6 +71,7 @@ customElements.define(
 
               background-color: var(--bg-color);
               background-image: image-set( url("/assets/images/bg-texture.avif") type("image/avif"), url("/assets/images/bg-texture.png") type("image/png") );
+              background-size: 150px;
 
               /* hidden default state */
               visibility: hidden;
