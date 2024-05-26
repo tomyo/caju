@@ -19,6 +19,12 @@ customElements.define(
 
     renderContent() {
       this.innerHTML = /*html*/ `
+        <a href="/" class="goto-home" >
+          <picture>
+            <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif">
+            <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" width="40" alt="logo as button">
+          </picture>
+        </a>
         <nav-button data-state=${this.dataset.state}></nav-button>
         
         <main>
@@ -87,7 +93,7 @@ customElements.define(
                 margin-top: calc(var(--gap) * 2);
                 text-align: center;
                 color: inherit;
-                width: 15ch; /* Avoid background moving on lang-switch, this must be enought to fit longest menu entry */
+                width: 18ch; /* Avoid background moving on lang-switch, this must be enought to fit longest menu entry */
 
                 a {
                   font-weight: 600;
@@ -120,20 +126,30 @@ customElements.define(
                   position: absolute;
                   inset: 0;
                   height: 140%;
-                  translate: -34% -28%;
+                  translate: -28% -28%;
                   opacity: .5;
                   z-index: -1;
                 }
               }
             }
 
-            nav-button {
+            nav-button, .goto-home {
+              /* Got to top button */
               position: fixed;
               cursor: pointer;
               top: 1.5rem;
+              z-index: 3;
+            }
+
+            .goto-home {
+              left: var(--button-size);
+              width: var(--button-size);
+              margin-top: -5px;
+            }
+
+            nav-button {
               width: var(--button-size);
               right: var(--button-size);
-              z-index: 3;
             }
           }
 
