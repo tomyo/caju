@@ -19,14 +19,16 @@ customElements.define(
 
     renderContent() {
       this.innerHTML = /*html*/ `
-        <a href="/" class="goto-home" >
-          <picture>
-            <source srcset="/assets/images/logo-xs.avif 1x, /assets/images/logo-xs-2x.avif 2x" type="image/avif">
-            <img srcset="/assets/images/logo-xs.png 1x, /assets/images/logo-xs-2x.png 2x" width="40" alt="logo as button">
-          </picture>
-        </a>
-        <nav-button data-state=${this.dataset.state}></nav-button>
-        
+        <aside>
+          <a href="/#" >
+            <picture>
+              <source srcset="/assets/images/initials-300w.avif 1x, /assets/images/initials-600w.avif 2x" type="image/avif">
+              <img srcset="/assets/images/initials-300w.png 1x, /assets/images/initials-600w.png 2x" height="25" alt="Go to home">
+            </picture>
+          </a>
+          <nav-button data-state=${this.dataset.state}></nav-button>
+        </aside>
+
         <main>
           <nav>
             <a data-l10n-key="comissioned" href="/comissioned/" style="color: #50ab95">COMISSIONED</a>
@@ -63,8 +65,30 @@ customElements.define(
           }
 
           aside-menu {
-            --button-size: 40px;
-            --button-right: 3rem;
+            position: fixed;
+            inset: 0 0 auto;
+            z-index: 10;
+
+
+            aside {
+              display: flex;
+              position: relative;
+              margin: 1.5rem 2.5rem;
+              justify-content: space-between;
+              align-items: center;
+              z-index: 1;
+
+              /* Got to top and menu buttons */
+              > * {
+                cursor: pointer;
+                opacity: .9;
+
+                img {
+                  display: block;
+                }
+              }
+            }
+
 
             main {
               display: grid;
@@ -73,7 +97,6 @@ customElements.define(
               inset: 0;
               height: 100%;
               width: 100%;
-              z-index: 2;
 
               background-color: var(--bg-color);
               background-image: image-set( url("/assets/images/bg-texture.avif") type("image/avif"), url("/assets/images/bg-texture.png") type("image/png") );
@@ -131,25 +154,6 @@ customElements.define(
                   z-index: -1;
                 }
               }
-            }
-
-            nav-button, .goto-home {
-              /* Got to top button */
-              position: fixed;
-              cursor: pointer;
-              top: 1.5rem;
-              z-index: 3;
-            }
-
-            .goto-home {
-              left: var(--button-size);
-              width: var(--button-size);
-              margin-top: -5px;
-            }
-
-            nav-button {
-              width: var(--button-size);
-              right: var(--button-size);
             }
           }
 

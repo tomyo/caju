@@ -12,8 +12,8 @@ customElements.define(
           }
 
 
-          :host:after, 
-          :host:before, 
+          :host::after,
+          :host::before,
           :host div {
             background-color: var(--color);
             border-radius: 1px;
@@ -22,6 +22,14 @@ customElements.define(
             height: 3px;
             margin: 5px 0;
             transition: all .2s ease-in-out;
+          }
+
+          :host::before {
+            margin-block-start: 0;
+          }
+
+          :host::after {
+            margin-block-end: 0;
           }
 
           :host([data-state="expanded"])::before {
