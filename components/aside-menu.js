@@ -20,7 +20,7 @@ customElements.define(
     renderContent() {
       this.innerHTML = /*html*/ `
         <aside>
-          <a href="/#" >
+          <a href="/#">
             <picture>
               <source srcset="/assets/images/initials-300w.avif 1x, /assets/images/initials-600w.avif 2x" type="image/avif">
               <img srcset="/assets/images/initials-300w.png 1x, /assets/images/initials-600w.png 2x" height="25" alt="Go to home">
@@ -166,45 +166,26 @@ customElements.define(
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-      if (name === "data-state" && oldValue !== newValue) this.navButton.dataset.state = newValue;
+      if (name === "data-state" && oldValue !== newValue) {
+        // Reflect `state` to inner `<nav-button>`
+        this.navButton.dataset.state = newValue;
+      }
     }
 
     addEventsListeners() {
-      this.navButton.addEventListener("click", this);
-
-      // document.documentElement.addEventListener("click", this);
-
-      window.addEventListener("hashchange", this.handleHashChange);
+      this.querySelectorAll("a, nav-button").forEach((element) => {
+        element.addEventListener("click", this);
+      });
     }
 
     handleEvent(event) {
-      this[`on${event.type}`](event);
+      // click -> Click
+      this[`on${event.type[0].toUpperCase() + event.type.slice(1)}`](event);
     }
 
-    onclick(event) {
-      if (event.target == this.navButton) return this.toggleMenu();
+    onClick(event) {
+      if (event.target == this.navButton || this.dataset.state === "expanded") return this.toggleMenu();
     }
-
-    handleMenuClose = (event) => {
-      if (this.dataset.state === "collapsed") return;
-
-      if (!event.composedPath().includes(this)) {
-        // click outside the menu, close it
-        return this.toggleMenu();
-      }
-    };
-
-    handleHashChange = (event) => {
-      if (this.dataset.state === "collapsed") return;
-
-      const newUrl = new URL(event.newURL);
-      const selector = `a[href="${newUrl.hash}"], a[href="/${newUrl.hash}"]`;
-      if (this.querySelector(selector)) {
-        // When scrolling to a same-page hash link, close the menu.
-        this.toggleMenu();
-        return;
-      }
-    };
 
     toggleMenu() {
       this.dataset.state = "expanded" == this.dataset.state ? "collapsed" : "expanded";
