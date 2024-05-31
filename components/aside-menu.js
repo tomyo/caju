@@ -1,4 +1,5 @@
 import "./nav-button.js";
+import "./l10n-switch.js";
 
 customElements.define(
   "aside-menu",
@@ -35,16 +36,7 @@ customElements.define(
             <a data-l10n-key="services" href="/#services">SERVICES</a>
             <a data-l10n-key="about" href="/#about">ABOUT</a>
             <a data-l10n-key="contact" href="/#contact">CONTACT</a>
-            <span class="lang-switch">
-              <label>
-              EN
-              <input name="language" data-l10n-lang="en" type="radio" checked>
-              </label>
-              <label>
-                ES
-                <input name="language" data-l10n-lang="es" type="radio" >
-              </label>
-            </span>
+            <l10n-switch></l10n-switch>
             <picture>
               <!-- bg image -->
               <source srcset="/assets/images/caju-menu-600w.avif" type="image/avif"/>
@@ -188,7 +180,7 @@ customElements.define(
     }
 
     toggleMenu() {
-      this.dataset.state = "expanded" == this.dataset.state ? "collapsed" : "expanded";
+      this.dataset.state = this.dataset.state == "collapsed" ? "expanded" : "collapsed";
     }
   }
 );

@@ -523,23 +523,5 @@
         </style>
       </section>
     </main>
-
-    <!-- L10N -->
-    <script type="module">
-      import { useL10n } from "/lib/i18n/use-l10n.js";
-      const [getUILanguage, getPreferredLanguage, setLanguage] = useL10n({
-        filesPath: "./l10n/", // => fetch('./l10n/{language}.json')
-        dataAttrName: "data-l10n-key", // i.e. <p data-l10n-key="...">
-      });
-
-      window.addEventListener("load", () => {
-        for (const button of document.querySelectorAll("[data-l10n-lang]")) {
-          button.addEventListener("click", () => {
-            setLanguage(button.dataset.l10nLang);
-            button.classList.add("active");
-          });
-        }
-      });
-    </script>
   </body>
 </html>
