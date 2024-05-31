@@ -9,7 +9,9 @@ customElements.define(
 
     connectedCallback() {
       this.renderContent();
-      this.setUp();
+
+      if (document.readyState === "complete") return this.setUp();
+      window.addEventListener("load", () => this.setUp());
     }
 
     renderContent() {
@@ -46,19 +48,17 @@ customElements.define(
     }
 
     setUp() {
-      window.addEventListener("load", () => {
-        const [getUILanguage, getPreferredLanguage, setLanguage] = useL10n({
-          filesPath: "/l10n/", // => fetch('./l10n/{language}.json')
-          dataAttrName: "data-l10n-key", // i.e. <p data-l10n-key="...">
-        });
-
-        for (const switcher of this.querySelectorAll("[data-l10n]")) {
-          switcher.addEventListener("click", () => {
-            setLanguage(switcher.dataset.l10n);
-            switcher.classList.add("active");
-          });
-        }
+      const [getUILanguage, getPreferredLanguage, setLanguage] = useL10n({
+        filesPath: "/l10n/", // => fetch('./l10n/{language}.json')
+        dataAttrName: "data-l10n-key", // i.e. <p data-l10n-key="...">
       });
+
+      for (const switcher of this.querySelectorAll("[data-l10n]")) {
+        switcher.addEventListener("click", () => {
+          setLanguage(switcher.dataset.l10n);
+          switcher.classList.add("active");
+        });
+      }
     }
   }
 );
