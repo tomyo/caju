@@ -36,7 +36,36 @@ customElements.define(
             <a data-l10n-key="services" href="/#services">SERVICES</a>
             <a data-l10n-key="about" href="/#about">ABOUT</a>
             <a data-l10n-key="contact" href="/#contact">CONTACT</a>
-            <l10n-switch></l10n-switch>
+            <l10n-switch>
+              <label>
+                EN
+                <input name="localization" data-l10n="en" type="radio" checked>
+              </label>
+              <label>
+                ES
+                <input name="localization" data-l10n="es" type="radio" >
+              </label>
+              <style>
+                l10n-switch {
+                  display: flex;
+                  gap: .5rem;
+                  justify-content: center;
+
+                  label {
+                    cursor: pointer;
+                    font-weight: 300;
+
+                    &:has(input:checked) {
+                      font-weight: 700;
+                    }
+
+                    input {
+                      display: none;
+                    }
+                  }
+                }
+              </style>
+            </l10n-switch>
             <picture>
               <!-- bg image -->
               <source srcset="/assets/images/caju-menu-600w.avif" type="image/avif"/>

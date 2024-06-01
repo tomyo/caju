@@ -4,47 +4,12 @@ customElements.define(
   "l10n-switch",
   class extends HTMLElement {
     constructor() {
-      super(); //.attachShadow({ mode: "open" });
+      super();
     }
 
     connectedCallback() {
-      this.renderContent();
-
       if (document.readyState === "complete") return this.setUp();
       window.addEventListener("load", () => this.setUp());
-    }
-
-    renderContent() {
-      this.innerHTML = /*html*/ `
-        <label>
-          EN
-          <input name="localization" data-l10n="en" type="radio" checked>
-        </label>
-        <label>
-          ES
-          <input name="localization" data-l10n="es" type="radio" >
-        </label>
-        <style>
-          l10n-switch {
-            display: flex;
-            gap: .5rem;
-            justify-content: center;
-
-            label {
-              cursor: pointer;
-              font-weight: 300;
-
-              &:has(input:checked) {
-                font-weight: 700;
-              }
-
-              input {
-                display: none;
-              }
-            }
-          }
-        </style>
-      `;
     }
 
     setUp() {
