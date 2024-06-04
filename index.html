@@ -327,8 +327,13 @@
           experience.
         </p>
         <picture>
-          <source srcset="/assets/images/about.avif" type="image/avif" />
-          <img src="/assets/images/about.png" height="284" loading="lazy" alt="Camila Hayes and Julia Groppo" />
+          <source srcset="/assets/images/about-300w.avif 1x, /assets/images/about-640w.avif 2x" type="image/avif" />
+          <img
+            srcset="/assets/images/about-300w.avif 1x, /assets/images/about-640w.avif 2x"
+            width="170"
+            loading="lazy"
+            alt="Camila Hayes and Julia Groppo"
+          />
         </picture>
         <p data-l10n-key="about-p1">
           At the age of 13, <strong>Camila Hayes</strong> inherited her mother's photo camera, marking the beginning of
@@ -383,8 +388,8 @@
               display: contents;
 
               img {
-                margin-block-start: 1em;
-                max-width: min(80%, 300px);
+                margin: 2rem;
+                width: min(70%, 250px);
                 margin-inline: auto;
                 object-fit: contain;
               }
