@@ -26,6 +26,18 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png" />
+    <link
+      rel="preload"
+      href="/assets/videos/background-landscape-poster.jpg"
+      as="image"
+      media="(orientation: landscape)"
+    />
+    <link
+      rel="preload"
+      href="/assets/videos/background-portrait-poster.jpg"
+      as="image"
+      media="(orientation: portrait)"
+    />
     <script src="/components/aside-menu.js" type="module"></script>
 
     <style>
@@ -174,30 +186,34 @@
         <video
           id="bgVideo"
           class="background-full"
-          autoplay="true"
+          autoplay
           muted
           playsinline
           loop
           alt="Background video showcasing the work"
-        ></video>
-        <script>
-          function getScreenOrientation() {
-            if (!screen.orientation) return screen.height >= screen.width ? "portrait" : "landscape";
+        >
+          <script>
+            // Load video based on orientation
 
-            return screen.orientation.type.startsWith("portrait") ? "portrait" : "landscape";
-          }
+            function getScreenOrientation() {
+              if (!screen.orientation) return screen.height >= screen.width ? "portrait" : "landscape";
 
-          window.addEventListener("load", () => {
-            // get video by its id
-            const video = document.getElementById("bgVideo");
-            // poster and src url
-            video.src = `/assets/videos/${
-              getScreenOrientation() == "portrait" ? "background-portrait-lq.mp4" : "background-landscape-hq.mp4"
-            }`;
-            // load video
-            video.load();
-          });
-        </script>
+              return screen.orientation.type.startsWith("portrait") ? "portrait" : "landscape";
+            }
+
+            bgVideo.poster = `/assets/videos/background-${getScreenOrientation()}-poster.jpg`;
+
+            window.addEventListener("load", () => {
+              // Lazy load video based on orientation
+              bgVideo.src = `/assets/videos/${
+                getScreenOrientation() == "portrait" ? "background-portrait-lq.mp4" : "background-landscape-hq.mp4"
+              }`;
+
+              // load video
+              bgVideo.load();
+            });
+          </script>
+        </video>
         <style>
           section:first-child {
             height: 100svh;
