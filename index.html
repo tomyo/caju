@@ -170,7 +170,7 @@
           </h4>
           <button
             autofocus
-            onclick="bgVideo.muted = !bgVideo.muted; this.classList.toggle('music-on');"
+            onclick="bgAudio.paused ? bgAudio.play() : bgAudio.pause(); this.classList.toggle('music-on');"
             aria-label="Play or pause background music"
           >
             <picture>
@@ -192,6 +192,9 @@
           loop
           alt="Background video showcasing the work"
         >
+          <audio id="bgAudio" loop>
+            <source src="/assets/audios/background-music.mp3" type="audio/mpeg" />
+          </audio>
           <script>
             // Load video based on orientation
 
@@ -206,7 +209,9 @@
             window.addEventListener("load", () => {
               // Lazy load video based on orientation
               bgVideo.src = `/assets/videos/${
-                getScreenOrientation() == "portrait" ? "background-portrait-lq.mp4" : "background-landscape-hq.mp4"
+                getScreenOrientation() == "portrait"
+                  ? "background-portrait-lq-silent.mp4"
+                  : "background-landscape-hq-silent.mp4"
               }`;
 
               // load video
