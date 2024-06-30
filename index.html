@@ -410,7 +410,11 @@
             }
 
             .background-images {
+              @media (width > 1000px) {
+                --offset-correction: calc(10vw * 2);
+              }
               img {
+
                 position: absolute;
                 width: 50vw;
                 opacity: 0.4;
@@ -419,21 +423,21 @@
 
                 &.one {
                   top: 0;
-                  left: -26vw;
+                  left: calc(-26vw + var(--offset-correction, 0px));
                   transform: rotate(28deg);
                 }
                 &.two {
-                  right: -23%;
+                  right: calc(-23% + var(--offset-correction, 0px));
                   top: 8%;
                   transform: rotate(210deg);
                 }
                 &.three {
-                  right: -12%;
+                  right: calc(-12% + var(--offset-correction, 0px));
                   top: max(45%, 123vw);
                   transform: rotate(23deg);
                 }
                 &.four {
-                  left: -33%;
+                  left: calc(-33% + var(--offset-correction, 0px));
                   top: max(79%, 170vh);
                   transform: rotate(21deg);
                 }
