@@ -32,11 +32,7 @@ customElements.define(
 
         <main>
           <nav>
-            <a data-l10n-key="comissioned" href="/comissioned/" style="color: #50ab95">COMISSIONED</a>
-            <a data-l10n-key="services" href="/#services">SERVICES</a>
-            <a data-l10n-key="about" href="/#about">ABOUT</a>
-            <a data-l10n-key="contact" href="/#contact">CONTACT</a>
-            <l10n-switch>
+          <l10n-switch style="color: #50ab95">
               <label>
                 EN
                 <input name="localization" data-l10n="en" type="radio" checked>
@@ -66,6 +62,11 @@ customElements.define(
                 }
               </style>
             </l10n-switch>
+            <a data-l10n-key="services" href="/#services" >SERVICES</a>
+            <a data-l10n-key="comissioned" href="/#comissioned" >COMISSIONED</a>
+            <a data-l10n-key="about" href="/#about">ABOUT</a>
+            <a data-l10n-key="contact" href="/#contact">CONTACT</a>
+            
             <picture>
               <!-- bg image -->
               <source srcset="/assets/images/caju-menu-600w.avif" type="image/avif"/>
@@ -129,7 +130,7 @@ customElements.define(
               transition: opacity .25s ease-in-out, visibility .25s ease-out;
 
               nav {
-                --gap: 4rem;
+                --gap: 3.5rem;
 
                 position: relative;
                 display: grid;
@@ -138,6 +139,10 @@ customElements.define(
                 text-align: center;
                 color: inherit;
                 width: 18ch; /* Avoid background moving on lang-switch, this must be enought to fit longest menu entry */
+
+                & :first-child {
+                  margin-bottom: 1.3rem;
+                }
 
                 a {
                   font-weight: 600;
